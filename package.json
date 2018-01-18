@@ -6,17 +6,22 @@
   "scripts": {
     "server": "node server.js",
     "client": "node scripts/start-client.js",
+    "seed": "node scripts/seedDB.js",
     "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "build": "node scripts/build.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "concurrently": "^3.5.0",
     "eslint": "^4.15.0",
     "eslint-plugin-react": "^7.5.1",
-    "nodemon": "^1.11.0"
+    "jest": "^22.1.2",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
   },
   "dependencies": {
     "axios": "^0.17.1",
