@@ -12,19 +12,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //Setup http logger Morgan
-logger('dev');
+logger("dev");
 
 
 //Set up mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI || "mongod://localhost/nytreact"<
-{
-  useMongoClient: true
-})
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact");
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+	app.use(express.static("client/build"));
 }
 
 app.use(routes);
