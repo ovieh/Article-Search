@@ -9,7 +9,7 @@ import {
 	NavLink
 } from 'reactstrap';
 
-export default class navbarIntrance extends React.Component {
+export default class navbarInstance extends React.Component {
 	constructor(props) {
 			super(props);
 
