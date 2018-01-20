@@ -1,6 +1,7 @@
 import React, { Component} from "react";
 import { Card, CardHeader, CardBody, Button, Form, FormGroup, Label, Input } from "reactstrap";
-import API from "../../utils/API"
+import API from "../../utils/API";
+import Articles from "../Articles";
 
 
 export default class Search extends Component {
@@ -24,7 +25,6 @@ export default class Search extends Component {
 
 		if(this.state.topic) {
 			API.getArticles( this.state.topic, this.state.startYear, this.state.endYear)
-			.then(res => console.log(res))
 			.then(res =>  this.setState(
 				{ articles: res.data.response })
 			)
@@ -32,6 +32,18 @@ export default class Search extends Component {
 		}
 
 	}
+
+	// renderArticles() {
+	// 	if(!this.state.articles) {
+	// 		 return (
+	// 			<Card>
+	// 				<CardHeader>
+						
+	// 				</CardHeader>
+	// 			</Card>
+	// 		 );
+	// 	}
+	// }
 
 
 	render() {
@@ -75,6 +87,9 @@ export default class Search extends Component {
 
 					</CardBody>
 				</Card>
+				<Articles 
+					articles= { this.state.articles.docs }
+				/>
 			</div> 
 		);
 	}

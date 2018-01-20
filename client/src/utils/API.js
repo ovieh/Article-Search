@@ -11,9 +11,10 @@ export default {
 			params += `&begin_date=${starYear}0101`;
 		if(parseInt(endYear, 10))
 			params += `&end_date=${endYear}1231`;
-		console.log(BASE_URL + params)
 		return axios.get(BASE_URL + params);
 		
 	}
+
+	
 	
 };
