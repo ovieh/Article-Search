@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import API from "../../utils/API";
 import {
 		Card,
 		CardHeader,
@@ -15,6 +16,20 @@ const CardStyle = {
 
 class Articles extends Component {
 
+
+	saveArticle(articleData) {
+		// console.log(articleData.article);
+		const newArticle = {
+			headline: articleData.article.headline.main,
+			date: articleData.article.pub_date,
+			url: articleData.article.web_url
+		};
+		API.saveArticle(newArticle)
+			.then(res => console.log(res))
+			.catch(err => console.log(err));
+	}
+
+	//Todo: If search doesnt return any articles (array.length === 0) render message, "search return zero results"
 	renderArticles() {
 		if (this.props.articles) 
 			return this.props.articles.map((article, index) => <ListGroupItem key={index}>
@@ -22,7 +37,7 @@ class Articles extends Component {
 					<a href={`${article.web_url}`} target="_blank">
 						<ListGroupItemHeading>{`${article.headline.main}`}</ListGroupItemHeading>
 					</a>
-					<Button className="float-right">Save</Button>
+					<Button className="float-right" onClick={() => this.saveArticle({article})  }>Save</Button>
 				</span>
 				<ListGroupItemText>{`${article.pub_date}`}</ListGroupItemText>
 			</ListGroupItem>);

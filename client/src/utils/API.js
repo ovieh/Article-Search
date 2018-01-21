@@ -12,8 +12,14 @@ export default {
 		if(parseInt(endYear, 10))
 			params += `&end_date=${endYear}1231`;
 		return axios.get(BASE_URL + params);
+
 		
+	},
+	
+	saveArticle(articleData) {
+		return axios.post("/api/articles", articleData);
 	}
+
 
 	
 	
