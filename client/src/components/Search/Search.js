@@ -5,13 +5,12 @@ import Articles from "../Articles";
 
 
 export default class Search extends Component {
-
-		state = {
-			articles: [],
-			topic: null,
-			startYear: null
-		};
-	
+	state = {
+		articles: [],
+		topic: null,
+		startYear: null,
+		endYear: null
+	};
 
 	handleInputChange = event => {
 		const { name, value } = event.target;
@@ -26,8 +25,7 @@ export default class Search extends Component {
 		if(this.state.topic) {
 			API.getArticles( this.state.topic, this.state.startYear, this.state.endYear)
 			.then(res =>  this.setState(
-				{ articles: res.data.response })
-			)
+				{ articles: res.data.response }))
 			.catch(err => console.log(err));
 		}
 
