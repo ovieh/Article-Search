@@ -3,7 +3,7 @@ const API_KEY = "dc3dae4c986a4186918e9eb306954c12";
 
 
 export default {
-	getArticles(topic, starYear=2010, endYear=2018) {
+	search(topic, starYear=2010, endYear=2018) {
 		const BASE_URL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 		let params = `?api-key=${API_KEY}`;
 		params += `&q=${topic}`;
@@ -18,9 +18,14 @@ export default {
 	
 	saveArticle(articleData) {
 		return axios.post("/api/articles", articleData);
-	}
+	},
 
-
+	getArticles() {
+		return axios.get("/api/articles");
+	},
 	
+	deleteArticle(id) {
+		return axios.delete(`/api/articles/${id}`);
+	}
 	
 };

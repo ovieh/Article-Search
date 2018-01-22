@@ -23,7 +23,7 @@ export default class Search extends Component {
 		event.preventDefault();
 
 		if(this.state.topic) {
-			API.getArticles( this.state.topic, this.state.startYear, this.state.endYear)
+			API.search( this.state.topic, this.state.startYear, this.state.endYear)
 			.then(res =>  this.setState(
 				{ articles: res.data.response }))
 			.catch(err => console.log(err));

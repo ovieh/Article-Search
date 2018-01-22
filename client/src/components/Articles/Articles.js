@@ -24,6 +24,7 @@ class Articles extends Component {
 		};
 	}
 
+	// Update state with articles from search
 	componentWillReceiveProps(newProps) {
 		this.setState({
 			articles: newProps.articles
@@ -40,12 +41,12 @@ class Articles extends Component {
 		console.log({newArticle});
 		API.saveArticle(newArticle)
 			.then(res => console.log(res))
-			.then(res => this.loadArticles(article, article._id))
+			.then(res => this.parseArticles(article, article._id))
 			.catch(err => console.log(err));
 	}
 
 	//If articles has been saved, it will be removed from search results
-	loadArticles(article, id) {
+	parseArticles(article, id) {
 		console.log(this.props.articles[0]._id);
 		const articles = this.state.articles;
 
@@ -70,8 +71,6 @@ class Articles extends Component {
 			No Articles!
 			</ListGroupItem>;
 	}
-	
-	
 	
 	//this runs first?
 	render() {
