@@ -11,7 +11,8 @@ import {
 } from "reactstrap";
 
 const CardStyle = {
-	marginTop: "10px"
+	marginTop: "10px",
+	marginBottom: "70px"
 };
 
 
@@ -62,7 +63,10 @@ class Articles extends Component {
 					<a href={`${article.web_url}`} target="_blank">
 						<ListGroupItemHeading>{`${article.headline.main}`}</ListGroupItemHeading>
 					</a>
-					<Button className="float-right" onClick={() => this.saveArticle({article}) }>Save</Button>
+					<Button className="float-right" onClick={() => this.saveArticle({article}) }> 
+						<i class="fa fa-bookmark-o" aria-hidden="true"></i>
+						{" "}Save
+					</Button>
 				</span>
 				<ListGroupItemText>{`${article.pub_date}`}</ListGroupItemText>
 			</ListGroupItem>);

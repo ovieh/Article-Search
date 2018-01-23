@@ -45,10 +45,13 @@ class Saved extends Component {
 		if(articles && articles.length > 0)
 			return articles.map((article, index) => <ListGroupItem key={index}>
 				<span>
-					<a href={`${article.web_url}`} target="_blank">
+					<a href={`${article.url}`} target="_blank">
 						<ListGroupItemHeading>{`${article.headline}`}</ListGroupItemHeading>
 					</a>
-					<Button className="float-right" onClick={() => this.removeArticle(article._id) }>Remove</Button>
+					<Button className="float-right" onClick={() => this.removeArticle(article._id) }>
+					<i class="fa fa-bookmark" aria-hidden="true"></i>
+					{" "}
+					Remove</Button>
 				</span>
 				<ListGroupItemText>{`${article.date}`}</ListGroupItemText>
 			</ListGroupItem>);

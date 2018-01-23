@@ -3,7 +3,6 @@ import { Card, CardHeader, CardBody, Button, Form, FormGroup, Label, Input } fro
 import API from "../../utils/API";
 import Articles from "../Articles";
 
-
 export default class Search extends Component {
 	state = {
 		articles: [],
@@ -31,19 +30,6 @@ export default class Search extends Component {
 
 	}
 
-	// renderArticles() {
-	// 	if(!this.state.articles) {
-	// 		 return (
-	// 			<Card>
-	// 				<CardHeader>
-						
-	// 				</CardHeader>
-	// 			</Card>
-	// 		 );
-	// 	}
-	// }
-
-
 	render() {
 		return (
 			<div>
@@ -58,7 +44,7 @@ export default class Search extends Component {
 								<Input 
 								name="topic" 
 								id="topic" 
-								placeholder="Bitcoin Bubble" 
+								placeholder="Topic: Required" 
 								onChange={this.handleInputChange}
 								/>
 							</FormGroup>
@@ -66,7 +52,7 @@ export default class Search extends Component {
 								<Label for="startYear">Start Year</Label>
 								<Input name="startYear" 
 								id="startYear" 
-								placeholder="1900" 
+								placeholder="Start Year: Optional" 
 								onChange={this.handleInputChange}
 								/>
 							</FormGroup>
@@ -74,12 +60,13 @@ export default class Search extends Component {
 								<Label for="endYear">End Year</Label>
 								<Input  name="endYear" 
 								id="endYear" 
-								placeholder="2018" 
+								placeholder="End Year: Optional" 
 								onChange={this.handleInputChange}
 								/>
 							</FormGroup>
 							<Button 
 								onClick={this.handleFormSubmit}>
+								<i class="fa fa-search" aria-hidden="true"></i>{" "}
 								Search</Button>
 						</Form>
 
