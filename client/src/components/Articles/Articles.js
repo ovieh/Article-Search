@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { format } from "date-fns";
 import API from "../../utils/API";
 import {
 	Card,
@@ -34,9 +35,11 @@ class Articles extends Component {
 
 	saveArticle(articleData) {
 		const article = articleData.article;
+		const date = format(article.pub_date, "MM/DD/YYYY");
+		console.log(date);
 		const newArticle = {
 			headline: article.headline.main,
-			date: article.pub_date,
+			date: date,
 			url: article.web_url,
 		};
 		console.log({newArticle});
@@ -57,6 +60,7 @@ class Articles extends Component {
 	}
 
 	renderArticles(articles) {
+
 		if(articles && articles.length > 0)
 			return articles.map((article, index) => <ListGroupItem key={index}>
 				<span>
@@ -64,11 +68,11 @@ class Articles extends Component {
 						<ListGroupItemHeading>{`${article.headline.main}`}</ListGroupItemHeading>
 					</a>
 					<Button className="float-right" onClick={() => this.saveArticle({article}) }> 
-						<i class="fa fa-bookmark-o" aria-hidden="true"></i>
+						<i className="fa fa-bookmark-o" aria-hidden="true"></i>
 						{" "}Save
 					</Button>
 				</span>
-				<ListGroupItemText>{`${article.pub_date}`}</ListGroupItemText>
+				<ListGroupItemText><span className="font-weight-bold">Published Date:</span> {`${format(article.pub_date, "MM/DD/YYYY")}`}</ListGroupItemText>
 			</ListGroupItem>);
 		else 
 			return <ListGroupItem>

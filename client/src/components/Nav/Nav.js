@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
 	Collapse,
 	Navbar,
@@ -7,43 +7,43 @@ import {
 	Nav,
 	NavItem,
 	NavLink
-} from 'reactstrap';
+} from "reactstrap";
 
 export default class navbarInstance extends React.Component {
 	constructor(props) {
-			super(props);
+		super(props);
 
-			this.toggle = this
-					.toggle
-					.bind(this);
-			this.state = {
-					isOpen: false
-			};
+		this.toggle = this
+			.toggle
+			.bind(this);
+		this.state = {
+			isOpen: false
+		};
 	}
 	toggle() {
-			this.setState({
-					isOpen: !this.state.isOpen
-			});
+		this.setState({
+			isOpen: !this.state.isOpen
+		});
 	}
 	render() {
-			return (
-					<div>
-							<Navbar color="dark" dark expand="md">
-									<NavbarBrand href="/">React - NYTimes Search</NavbarBrand>
-									<NavbarToggler onClick={this.toggle}/>
-									<Collapse isOpen={this.state.isOpen} navbar>
-											<Nav className="ml-auto" navbar>
-													<NavItem>
-															<NavLink href="/">Home</NavLink>
-													</NavItem>
-													<NavItem>
-															<NavLink href="/saved">Saved</NavLink>
-													</NavItem>
+		return (
+			<div>
+				<Navbar color="dark" dark expand="md">
+					<NavbarBrand href="/">React - NYTimes Search</NavbarBrand>
+					<NavbarToggler onClick={this.toggle}/>
+					<Collapse isOpen={this.state.isOpen} navbar>
+						<Nav className="ml-auto" navbar>
+							<NavItem>
+								<NavLink href="/">Home</NavLink>
+							</NavItem>
+							<NavItem>
+								<NavLink href="/saved">Saved</NavLink>
+							</NavItem>
 
-											</Nav>
-									</Collapse>
-							</Navbar>
-					</div>
-			);
+						</Nav>
+					</Collapse>
+				</Navbar>
+			</div>
+		);
 	}
 }

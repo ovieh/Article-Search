@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import {
 	Card,
@@ -14,7 +13,8 @@ import {
 
 
 const CardStyle = {
-	marginTop: "10px"
+	marginTop: "10px",
+	marginBottom: "70px"
 };
 
 class Saved extends Component {
@@ -49,11 +49,11 @@ class Saved extends Component {
 						<ListGroupItemHeading>{`${article.headline}`}</ListGroupItemHeading>
 					</a>
 					<Button className="float-right" onClick={() => this.removeArticle(article._id) }>
-					<i class="fa fa-bookmark" aria-hidden="true"></i>
+					<i className="fa fa-bookmark" aria-hidden="true"></i>
 					{" "}
 					Remove</Button>
 				</span>
-				<ListGroupItemText>{`${article.date}`}</ListGroupItemText>
+				<ListGroupItemText><span className="font-weight-bold">Published Date:</span> {`${article.date}`}</ListGroupItemText>
 			</ListGroupItem>);
 		else 
 			return <ListGroupItem>
@@ -64,11 +64,10 @@ class Saved extends Component {
 	render() {
 		return(
 			<div>
-				<Jumbotron />
 				<Container>
 				<Card style={CardStyle}>
 				<CardHeader>
-					Search Results
+					Saved Articles
 				</CardHeader>
 				<ListGroup>
 					{this.renderArticles(this.state.articles) }

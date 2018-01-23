@@ -4,12 +4,16 @@ import API from "../../utils/API";
 import Articles from "../Articles";
 
 export default class Search extends Component {
-	state = {
-		articles: [],
-		topic: null,
-		startYear: null,
-		endYear: null
-	};
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			articles: [],
+			topic: "",
+			startYear: "",
+			endYear: ""
+		};
+	}
 
 	handleInputChange = event => {
 		const { name, value } = event.target;
@@ -18,6 +22,7 @@ export default class Search extends Component {
 		});
 	};
 
+	//Figure out why this isn't clearing form
 	handleFormSubmit = event => {
 		event.preventDefault();
 
@@ -25,6 +30,7 @@ export default class Search extends Component {
 			API.search( this.state.topic, this.state.startYear, this.state.endYear)
 			.then(res =>  this.setState(
 				{ articles: res.data.response }))
+			.then(res => this.setState({ topic: "", startYear: "", endYear: "" }))
 			.catch(err => console.log(err));
 		}
 
@@ -66,7 +72,7 @@ export default class Search extends Component {
 							</FormGroup>
 							<Button 
 								onClick={this.handleFormSubmit}>
-								<i class="fa fa-search" aria-hidden="true"></i>{" "}
+								<i className="fa fa-search" aria-hidden="true"></i>{" "}
 								Search</Button>
 						</Form>
 
