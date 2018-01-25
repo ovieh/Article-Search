@@ -1,12 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
 	Collapse,
 	Navbar,
 	NavbarToggler,
 	NavbarBrand,
 	Nav,
-	NavItem,
-	NavLink
+	NavItem
 } from "reactstrap";
 
 export default class navbarInstance extends React.Component {
@@ -34,10 +34,10 @@ export default class navbarInstance extends React.Component {
 					<Collapse isOpen={this.state.isOpen} navbar>
 						<Nav className="ml-auto" navbar>
 							<NavItem>
-								<NavLink href="/">Home</NavLink>
+								<Link className="nav-link"to="/">Home</Link>
 							</NavItem>
 							<NavItem>
-								<NavLink href="/saved">Saved</NavLink>
+								<Link className="nav-link" to="/saved">Saved</Link>
 							</NavItem>
 
 						</Nav>
