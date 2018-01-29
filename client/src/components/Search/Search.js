@@ -51,6 +51,7 @@ export default class Search extends Component {
 								name="topic" 
 								id="topic" 
 								placeholder="Topic: Required" 
+								value={this.state.topic}
 								onChange={this.handleInputChange}
 								/>
 							</FormGroup>
@@ -59,6 +60,7 @@ export default class Search extends Component {
 								<Input name="startYear" 
 								id="startYear" 
 								placeholder="Start Year: Optional" 
+								value={this.state.startYear}
 								onChange={this.handleInputChange}
 								/>
 							</FormGroup>
@@ -67,6 +69,7 @@ export default class Search extends Component {
 								<Input  name="endYear" 
 								id="endYear" 
 								placeholder="End Year: Optional" 
+								value={this.state.endYear}
 								onChange={this.handleInputChange}
 								/>
 							</FormGroup>
