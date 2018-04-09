@@ -13,17 +13,20 @@ export default class Search extends Component {
 			startYear: "",
 			endYear: ""
 		};
+
+		// this.handleInputChange = this.handleInputChange.bind(this);
+		// this.handleFormSubmit = this.handleFormSubmit.bind(this);
 	}
 
-	handleInputChange = event => {
+	handleInputChange = (event) => {
 		const { name, value } = event.target;
 		this.setState({
 			[name]: value
 		});
-	};
+	}
 
 	//Figure out why this isn't clearing form
-	handleFormSubmit = event => {
+	handleFormSubmit = (event) => {
 		event.preventDefault();
 
 		if(this.state.topic) {
@@ -44,7 +47,7 @@ export default class Search extends Component {
 						Article Search
 					</CardHeader>
 					<CardBody>
-						<Form>
+						<Form onSubmit={this.handleFormSubmit}>
 							<FormGroup>
 								<Label for="topic">Topic</Label>
 								<Input 
@@ -67,14 +70,14 @@ export default class Search extends Component {
 							<FormGroup>
 								<Label for="endYear">End Year</Label>
 								<Input  name="endYear" 
-								id="endYear" 
-								placeholder="End Year: Optional" 
-								value={this.state.endYear}
-								onChange={this.handleInputChange}
+									id="endYear" 
+									placeholder="End Year: Optional" 
+									value={this.state.endYear}
+									onChange={this.handleInputChange}
 								/>
 							</FormGroup>
 							<Button 
-								onClick={this.handleFormSubmit}>
+								type="submit" value="submit">
 								<i className="fa fa-search" aria-hidden="true"></i>{" "}
 								Search</Button>
 						</Form>
