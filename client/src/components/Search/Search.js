@@ -13,9 +13,6 @@ export default class Search extends Component {
 			startYear: "",
 			endYear: ""
 		};
-
-		// this.handleInputChange = this.handleInputChange.bind(this);
-		// this.handleFormSubmit = this.handleFormSubmit.bind(this);
 	}
 
 	handleInputChange = (event) => {
@@ -25,7 +22,6 @@ export default class Search extends Component {
 		});
 	}
 
-	//Figure out why this isn't clearing form
 	handleFormSubmit = (event) => {
 		event.preventDefault();
 
