@@ -101,6 +101,6 @@ $RECYCLE.BIN/
 !.elasticbeanstalk/*.cfg.yml
 
 !.elasticbeanstalk/*.global.yml
-.ebxtensions
+.ebextensions
 
 
