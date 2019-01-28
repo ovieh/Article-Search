@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_KEY = "dc3dae4c986a4186918e9eb306954c12";
+const API_KEY = "JnE2WwlCcmYjGoDkJHWNSw5GzLSZnnx8";
 
 
 export default {
