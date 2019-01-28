@@ -64,7 +64,7 @@ class Articles extends Component {
 		if(articles && articles.length > 0)
 			return articles.map((article, index) => <ListGroupItem key={index}>
 				<span>
-					<a href={`${article.web_url}`} target="_blank">
+					<a href={`${article.web_url}`} target="_blank" rel="noopener noreferrer">
 						<ListGroupItemHeading>{`${article.headline.main}`}</ListGroupItemHeading>
 					</a>
 					<Button className="float-right" onClick={() => this.saveArticle({article}) }> 
