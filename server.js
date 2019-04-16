@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //Setup http logger Morgan
-logger("dev");
+app.use(logger("dev"));
 
 
 //Set up mongoose

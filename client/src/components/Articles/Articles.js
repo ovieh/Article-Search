@@ -27,9 +27,19 @@ class Articles extends Component {
 	}
 
 	// Update state with articles from search
-	componentWillReceiveProps(newProps) {
+	componentWillReceiveProps(newProps, key) {
+		const articles = newProps.articles;
+
+		const cachedArticles = localStorage.getItem(articles);
+		if (cachedArticles) {
+			this.setState({ articles: JSON.parse(cachedArticles)} );
+			return;
+		}
+		console.log(cachedArticles)
+		localStorage.setItem(key, JSON.stringify(articles));
+
 		this.setState({
-			articles: newProps.articles
+			articles: articles
 		});
 	}
 
