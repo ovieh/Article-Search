@@ -14,14 +14,16 @@ app.use(bodyParser.json());
 //Setup http logger Morgan
 app.use(logger("dev"));
 
-
 //Set up mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact", {
+  useUnifiedTopology: true,
+  useNewUrlParser: true
+});
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-	app.use(express.static("client/build"));
+  app.use(express.static("client/build"));
 }
 
 app.use(routes);
@@ -32,8 +34,6 @@ app.use(routes);
 //   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 // });
 
-
-
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
