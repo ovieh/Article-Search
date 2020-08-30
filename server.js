@@ -21,6 +21,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact", {
   useNewUrlParser: true
 });
 
+console.log("URI", process.env.MONGODB_URI);
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
